@@ -66,8 +66,7 @@ const DUMMY_MEALS = const [
     title: 'Spaghetti with Tomato Sauce',
     affordability: Affordability.Affordable,
     complexity: Complexity.Simple,
-    imageUrl:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg/800px-Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg',
+    imageUrl: 'assets/images/spaghetti.jpg',
     duration: 20,
     ingredients: [
       '4 Tomatoes',
@@ -99,8 +98,7 @@ const DUMMY_MEALS = const [
     title: 'Toast Hawaii',
     affordability: Affordability.Affordable,
     complexity: Complexity.Simple,
-    imageUrl:
-        'https://cdn.pixabay.com/photo/2018/07/11/21/51/toast-3532016_1280.jpg',
+    imageUrl: 'assets/images/toast.jpg',
     duration: 10,
     ingredients: [
       '1 Slice White Bread',
@@ -128,8 +126,7 @@ const DUMMY_MEALS = const [
     title: 'Classic Hamburger',
     affordability: Affordability.Pricey,
     complexity: Complexity.Simple,
-    imageUrl:
-        'https://cdn.pixabay.com/photo/2014/10/23/18/05/burger-500054_1280.jpg',
+    imageUrl: 'assets/images/burger.jpg',
     duration: 45,
     ingredients: [
       '300g Cattle Hack',
@@ -159,8 +156,7 @@ const DUMMY_MEALS = const [
     title: 'Wiener Schnitzel',
     affordability: Affordability.Luxurious,
     complexity: Complexity.Challenging,
-    imageUrl:
-        'https://cdn.pixabay.com/photo/2018/03/31/19/29/schnitzel-3279045_1280.jpg',
+    imageUrl: 'assets/images/schnitzel.jpg',
     duration: 60,
     ingredients: [
       '8 Veal Cutlets',
@@ -297,8 +293,7 @@ const DUMMY_MEALS = const [
     title: 'Creamy Indian Chicken Curry',
     affordability: Affordability.Pricey,
     complexity: Complexity.Challenging,
-    imageUrl:
-        'https://cdn.pixabay.com/photo/2018/06/18/16/05/indian-food-3482749_1280.jpg',
+    imageUrl: 'assets/images/indian-food.jpg',
     duration: 35,
     ingredients: [
       '4 Chicken Breasts',

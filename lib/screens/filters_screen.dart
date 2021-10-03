@@ -52,6 +52,9 @@ class _FiltersScreenState extends State<FiltersScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('HUANG Jinou Filter'),
+      ),
       drawer: MainDrawer(),
       body: Column(
         children: <Widget>[

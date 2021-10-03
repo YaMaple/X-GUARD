@@ -5,6 +5,7 @@ import './favorites_screen.dart';
 import './categories_screen.dart';
 import '../models/meal.dart';
 import './filters_screen.dart';
+import './category_meals_screen.dart';
 
 class TabsScreen extends StatefulWidget {
   final List<Meal> favoriteMeals;
@@ -33,6 +34,10 @@ class _TabsScreenState extends State<TabsScreen> {
       {
         'page': FiltersScreen(),
         'title': 'Filter',
+      },
+      {
+        'page': CategoryMealsScreen(),
+        'title': 'Meals',
       },
     ];
     super.initState();
@@ -74,6 +79,11 @@ class _TabsScreenState extends State<TabsScreen> {
             backgroundColor: Theme.of(context).primaryColor,
             icon: Icon(Icons.account_balance),
             label: 'Filter',
+          ),
+          BottomNavigationBarItem(
+            backgroundColor: Theme.of(context).primaryColor,
+            icon: Icon(Icons.attach_money),
+            label: 'Meals',
           ),
         ],
       ),

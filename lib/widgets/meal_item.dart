@@ -88,9 +88,10 @@ class MealItem extends StatelessWidget {
                 ),
               ),
               Positioned(
-                bottom: 20,
+                bottom: 0,
                 child: Container(
-                  width: MediaQuery.of(context).size.width,
+                  width: MediaQuery.of(context).size.width - 20,
+                  padding: EdgeInsets.all(10),
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.only(
@@ -100,9 +101,9 @@ class MealItem extends StatelessWidget {
                     title,
                     style: TextStyle(
                       fontSize: 26,
-                      color: Colors.white,
+                      color: Colors.black,
                     ),
-                    softWrap: true,
+                    // softWrap: true,
                     overflow: TextOverflow.fade,
                   ),
                 ),

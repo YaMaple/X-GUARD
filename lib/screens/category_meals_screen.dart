@@ -53,7 +53,8 @@ class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('My Meal'),
+        title: Text('Focus'),
+        backgroundColor: Color.fromARGB(0xff, 0x14, 0x27, 0x4e),
       ),
       body: ListView.builder(
         itemBuilder: (ctx, index) {

@@ -61,7 +61,7 @@ class _TabsScreenState extends State<TabsScreen> {
         onTap: _selectPage,
         backgroundColor: Theme.of(context).primaryColor,
         unselectedItemColor: Colors.white,
-        selectedItemColor: Theme.of(context).colorScheme.secondary,
+        selectedItemColor: Colors.yellow[400],
         currentIndex: _selectedPageIndex,
         // type: BottomNavigationBarType.fixed,
         items: [
@@ -83,7 +83,7 @@ class _TabsScreenState extends State<TabsScreen> {
           BottomNavigationBarItem(
             backgroundColor: Theme.of(context).primaryColor,
             icon: Icon(Icons.attach_money),
-            label: 'Meals',
+            label: 'Focus',
           ),
         ],
       ),

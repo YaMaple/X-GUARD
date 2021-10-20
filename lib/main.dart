@@ -50,9 +50,9 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'DeliMeals',
       theme: ThemeData(
-        primarySwatch: Colors.pink,
-        primaryColor: Colors.amber,
-        canvasColor: Color.fromRGBO(255, 254, 229, 1),
+        // primarySwatch: Colors.blue,
+        primaryColor: Color.fromARGB(0xff, 0x14, 0x27, 0x4e),
+        canvasColor: Color.fromARGB(0xff, 0xff, 0xff, 0xff),
         fontFamily: 'Raleway',
         textTheme: ThemeData.light().textTheme.copyWith(
             bodyText1: TextStyle(

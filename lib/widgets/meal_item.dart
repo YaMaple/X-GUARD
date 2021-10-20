@@ -76,15 +76,38 @@ class MealItem extends StatelessWidget {
         elevation: 4,
         margin: EdgeInsets.all(10),
         child: Column(
-          mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            const ListTile(
-              title: Text(
-                'The Enchanted Nightingale',
-                style: TextStyle(fontSize: 25),
+            Stack(children: <Widget>[
+              ClipRRect(
+                borderRadius: BorderRadius.circular(15),
+                child: Image(
+                  image: AssetImage(imageUrl),
+                  height: 250,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                ),
               ),
-              subtitle: Text('Music by Julie Gable. Lyrics by Sidney Stein.'),
-            ),
+              Positioned(
+                bottom: 20,
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(15),
+                          bottomRight: Radius.circular(15))),
+                  child: Text(
+                    title,
+                    style: TextStyle(
+                      fontSize: 26,
+                      color: Colors.white,
+                    ),
+                    softWrap: true,
+                    overflow: TextOverflow.fade,
+                  ),
+                ),
+              )
+            ]),
           ],
         ),
       ),

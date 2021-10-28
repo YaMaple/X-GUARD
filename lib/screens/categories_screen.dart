@@ -6,52 +6,63 @@ import '../widgets/category_item.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 // import 'package:flutter/material.dart';
 
-class SimplePieChart extends StatelessWidget {
-  final List<charts.Series> seriesList;
-  final bool animate;
+import 'constants.dart';
+import 'chart.dart';
+import 'storage_info_card.dart';
 
-  SimplePieChart(this.seriesList, {this.animate});
-
-  /// Creates a [PieChart] with sample data and no transition.
-  factory SimplePieChart.withSampleData() {
-    return new SimplePieChart(
-      _createSampleData(),
-      // Disable animations for image tests.
-      animate: false,
-    );
-  }
+class StarageDetails extends StatelessWidget {
+  const StarageDetails({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return new charts.PieChart(seriesList, animate: animate);
+    return Container(
+      padding: EdgeInsets.all(defaultPadding),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        // borderRadius: const BorderRadius.all(Radius.circular(10)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "Storage Details",
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          SizedBox(height: defaultPadding),
+          Chart(),
+          StorageInfoCard(
+            svgSrc: "assets/images/Documents.svg",
+            title: "Documents Files",
+            amountOfFiles: "1.3GB",
+            numOfFiles: 1328,
+          ),
+          StorageInfoCard(
+            svgSrc: "assets/images/media.svg",
+            title: "Media Files",
+            amountOfFiles: "15.3GB",
+            numOfFiles: 1328,
+          ),
+          StorageInfoCard(
+            svgSrc: "assets/images/folder.svg",
+            title: "Other Files",
+            amountOfFiles: "1.3GB",
+            numOfFiles: 1328,
+          ),
+          StorageInfoCard(
+            svgSrc: "assets/images/unknown.svg",
+            title: "Unknown",
+            amountOfFiles: "1.3GB",
+            numOfFiles: 140,
+          ),
+        ],
+      ),
+    );
   }
-
-  /// Create one series with sample hard coded data.
-  static List<charts.Series<LinearSales, int>> _createSampleData() {
-    final data = [
-      new LinearSales(0, 100),
-      new LinearSales(1, 75),
-      new LinearSales(2, 25),
-      new LinearSales(3, 5),
-    ];
-
-    return [
-      new charts.Series<LinearSales, int>(
-        id: 'Sales',
-        domainFn: (LinearSales sales, _) => sales.year,
-        measureFn: (LinearSales sales, _) => sales.sales,
-        data: data,
-      )
-    ];
-  }
-}
-
-/// Sample linear data type.
-class LinearSales {
-  final int year;
-  final int sales;
-
-  LinearSales(this.year, this.sales);
 }
 
 class CategoriesScreen extends StatelessWidget {
@@ -60,8 +71,9 @@ class CategoriesScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('categories'),
+        backgroundColor: Color.fromARGB(0xff, 0x14, 0x27, 0x4e),
       ),
-      body: SimplePieChart.withSampleData(),
+      body: StarageDetails(),
     );
   }
 }

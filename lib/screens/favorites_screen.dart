@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
+import 'dart:convert';
+
 import '../models/meal.dart';
 import '../widgets/meal_item.dart';
+
+import 'package:http/http.dart' as http;
 
 class FavoritesScreen extends StatefulWidget {
   final List<Meal> favoriteMeals;
@@ -16,10 +20,21 @@ class FavoritesScreenState extends State<FavoritesScreen> {
   final titleController = TextEditingController();
   final amountController = TextEditingController();
 
-  void submitData() {
+  Future<void> submitData() async {
     print("submit data");
     print(titleController.text);
     print(amountController.text);
+
+    final para = {
+      'a1': 'one',
+      'a2': 'two',
+    };
+
+    final uri = Uri.https('httpbin.org', '/anything', para);
+    final response = await http.get(uri);
+    final extractedData = json.decode(response.body) as Map<String, dynamic>;
+    print(extractedData);
+    print(extractedData['headers']['Accept']);
   }
 
   @override

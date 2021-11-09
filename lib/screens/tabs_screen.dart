@@ -25,11 +25,11 @@ class _TabsScreenState extends State<TabsScreen> {
     _pages = [
       {
         'page': ReportScreen(),
-        'title': 'Categories',
+        'title': 'Report',
       },
       {
         'page': AlgorithmScreen(widget.favoriteMeals),
-        'title': 'Your Favorite',
+        'title': 'Algorithm',
       },
       {
         'page': FiltersScreen(),
@@ -37,7 +37,7 @@ class _TabsScreenState extends State<TabsScreen> {
       },
       {
         'page': NewsScreen(),
-        'title': 'Meals',
+        'title': 'News',
       },
     ];
     super.initState();
@@ -83,7 +83,7 @@ class _TabsScreenState extends State<TabsScreen> {
           BottomNavigationBarItem(
             backgroundColor: Theme.of(context).primaryColor,
             icon: Icon(Icons.attach_money),
-            label: 'Focus',
+            label: 'News',
           ),
         ],
       ),

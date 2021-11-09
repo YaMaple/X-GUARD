@@ -9,16 +9,16 @@ import '../widgets/meal_item.dart';
 
 import 'package:http/http.dart' as http;
 
-class FavoritesScreen extends StatefulWidget {
+class AlgorithmScreen extends StatefulWidget {
   final List<Meal> favoriteMeals;
 
-  FavoritesScreen(this.favoriteMeals);
+  AlgorithmScreen(this.favoriteMeals);
 
   @override
-  FavoritesScreenState createState() => FavoritesScreenState();
+  AlgorithmScreenState createState() => AlgorithmScreenState();
 }
 
-class FavoritesScreenState extends State<FavoritesScreen> {
+class AlgorithmScreenState extends State<AlgorithmScreen> {
   final titleController = TextEditingController();
   final amountController = TextEditingController();
 

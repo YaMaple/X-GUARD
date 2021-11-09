@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/main_drawer.dart';
-import './favorites_screen.dart';
-import './categories_screen.dart';
+import 'algorithm_screen.dart';
+import 'report_screen.dart';
 import '../models/meal.dart';
 import './filters_screen.dart';
-import './category_meals_screen.dart';
+import 'news_screen.dart';
 
 class TabsScreen extends StatefulWidget {
   final List<Meal> favoriteMeals;
@@ -24,11 +24,11 @@ class _TabsScreenState extends State<TabsScreen> {
   void initState() {
     _pages = [
       {
-        'page': CategoriesScreen(),
+        'page': ReportScreen(),
         'title': 'Categories',
       },
       {
-        'page': FavoritesScreen(widget.favoriteMeals),
+        'page': AlgorithmScreen(widget.favoriteMeals),
         'title': 'Your Favorite',
       },
       {
@@ -36,7 +36,7 @@ class _TabsScreenState extends State<TabsScreen> {
         'title': 'Filter',
       },
       {
-        'page': CategoryMealsScreen(),
+        'page': NewsScreen(),
         'title': 'Meals',
       },
     ];

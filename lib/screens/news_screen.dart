@@ -5,18 +5,18 @@ import '../models/meal.dart';
 
 import '../dummy_data.dart';
 
-class CategoryMealsScreen extends StatefulWidget {
+class NewsScreen extends StatefulWidget {
   static const routeName = '/category-meals';
 
   List<Meal> availableMeals = DUMMY_MEALS;
 
-  CategoryMealsScreen();
+  NewsScreen();
 
   @override
-  _CategoryMealsScreenState createState() => _CategoryMealsScreenState();
+  _NewsScreenState createState() => _NewsScreenState();
 }
 
-class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
+class _NewsScreenState extends State<NewsScreen> {
   String categoryTitle = 'HJO Test';
   List<Meal> displayedMeals = DUMMY_MEALS;
   var _loadedInitData = true;

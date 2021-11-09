@@ -323,7 +323,7 @@ class StarageDetails extends StatelessWidget {
   }
 }
 
-class CategoriesScreen extends StatelessWidget {
+class ReportScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     FutureOr<Uint8List> buildPdf(PdfPageFormat format) async {

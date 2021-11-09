@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 import './dummy_data.dart';
 import './screens/tabs_screen.dart';
-import './screens/meal_detail_screen.dart';
-import './screens/category_meals_screen.dart';
+import 'screens/news_detail_screen.dart';
+import 'screens/news_screen.dart';
 import './screens/filters_screen.dart';
-import './screens/categories_screen.dart';
+import 'screens/report_screen.dart';
 import './models/meal.dart';
 
 void main() => runApp(MyApp());
@@ -71,9 +71,9 @@ class _MyAppState extends State<MyApp> {
       initialRoute: '/', // default is '/'
       routes: {
         '/': (ctx) => TabsScreen(_favoriteMeals),
-        CategoryMealsScreen.routeName: (ctx) => CategoryMealsScreen(),
-        MealDetailScreen.routeName: (ctx) =>
-            MealDetailScreen(_toggleFavorite, _isMealFavorite),
+        NewsScreen.routeName: (ctx) => NewsScreen(),
+        NewsDetailScreen.routeName: (ctx) =>
+            NewsDetailScreen(_toggleFavorite, _isMealFavorite),
         FiltersScreen.routeName: (ctx) => FiltersScreen(),
       },
       onGenerateRoute: (settings) {
@@ -84,12 +84,12 @@ class _MyAppState extends State<MyApp> {
         //   return ...;
         // }
         return MaterialPageRoute(
-          builder: (ctx) => CategoriesScreen(),
+          builder: (ctx) => ReportScreen(),
         );
       },
       onUnknownRoute: (settings) {
         return MaterialPageRoute(
-          builder: (ctx) => CategoriesScreen(),
+          builder: (ctx) => ReportScreen(),
         );
       },
     );

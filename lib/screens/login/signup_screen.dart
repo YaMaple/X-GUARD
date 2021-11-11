@@ -1,11 +1,12 @@
 import 'dart:math';
 
 import 'customClipper.dart';
-import 'package:assessment_task/home_screen.dart';
+import '../tabs_screen.dart';
 import 'login_screen.dart';
 import 'package:flutter/material.dart';
 
 class SignUpScreen extends StatefulWidget {
+  static const routeName = '/sign-up';
   const SignUpScreen({Key? key}) : super(key: key);
 
   @override
@@ -152,7 +153,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       onTap: () => Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => HomeScreen(),
+                          builder: (context) => TabsScreen(),
                         ),
                       ),
                       child: Container(

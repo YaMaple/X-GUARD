@@ -1,10 +1,13 @@
 import 'dart:math';
 
+import 'package:flutter_complete_guide/screens/tabs_screen.dart';
+
 import 'customClipper.dart';
 import 'signup_screen.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
+  static const routeName = '/login';
   const LoginScreen({Key? key}) : super(key: key);
 
   @override
@@ -123,7 +126,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     onTap: () => Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => HomeScreen(),
+                        builder: (context) => TabsScreen(),
                       ),
                     ),
                     child: Container(

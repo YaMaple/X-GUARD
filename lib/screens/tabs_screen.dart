@@ -8,9 +8,10 @@ import './filters_screen.dart';
 import 'news_screen.dart';
 
 class TabsScreen extends StatefulWidget {
-  final List<Meal> favoriteMeals;
+  final List<Meal> favoriteMeals = [];
+  static const routeName = '/tab-screen';
 
-  TabsScreen(this.favoriteMeals);
+  TabsScreen();
 
   @override
   _TabsScreenState createState() => _TabsScreenState();

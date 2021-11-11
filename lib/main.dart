@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 
-import './dummy_data.dart';
-import './screens/tabs_screen.dart';
+import 'dummy_data.dart';
+import 'screens/tabs_screen.dart';
 import 'screens/news_detail_screen.dart';
 import 'screens/news_screen.dart';
-import './screens/filters_screen.dart';
+import 'screens/filters_screen.dart';
 import 'screens/report_screen.dart';
-import './models/meal.dart';
+import 'models/meal.dart';
+import 'screens/login/login_screen.dart';
+import 'screens/login/signup_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -68,13 +70,15 @@ class _MyAppState extends State<MyApp> {
             )),
       ),
       // home: CategoriesScreen(),
-      initialRoute: '/', // default is '/'
+      initialRoute: '/login', // default is '/'
       routes: {
-        '/': (ctx) => TabsScreen(_favoriteMeals),
+        '/': (ctx) => TabsScreen(),
         NewsScreen.routeName: (ctx) => NewsScreen(),
         NewsDetailScreen.routeName: (ctx) =>
             NewsDetailScreen(_toggleFavorite, _isMealFavorite),
         FiltersScreen.routeName: (ctx) => FiltersScreen(),
+        LoginScreen.routeName: (ctx) => LoginScreen(),
+        SignUpScreen.routeName: (ctx) => SignUpScreen(),
       },
       onGenerateRoute: (settings) {
         print(settings.arguments);
@@ -84,12 +88,12 @@ class _MyAppState extends State<MyApp> {
         //   return ...;
         // }
         return MaterialPageRoute(
-          builder: (ctx) => ReportScreen(),
+          builder: (ctx) => LoginScreen(),
         );
       },
       onUnknownRoute: (settings) {
         return MaterialPageRoute(
-          builder: (ctx) => ReportScreen(),
+          builder: (ctx) => LoginScreen(),
         );
       },
     );

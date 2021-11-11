@@ -4,7 +4,7 @@ import 'dummy_data.dart';
 import 'screens/tabs_screen.dart';
 import 'screens/news_detail_screen.dart';
 import 'screens/news_screen.dart';
-import 'screens/filters_screen.dart';
+import 'screens/watchlist_screen.dart';
 import 'screens/report_screen.dart';
 import 'models/meal.dart';
 import 'screens/login/login_screen.dart';
@@ -76,7 +76,7 @@ class _MyAppState extends State<MyApp> {
         NewsScreen.routeName: (ctx) => NewsScreen(),
         NewsDetailScreen.routeName: (ctx) =>
             NewsDetailScreen(_toggleFavorite, _isMealFavorite),
-        FiltersScreen.routeName: (ctx) => FiltersScreen(),
+        WatchListScreen.routeName: (ctx) => WatchListScreen(),
         LoginScreen.routeName: (ctx) => LoginScreen(),
         SignUpScreen.routeName: (ctx) => SignUpScreen(),
       },

@@ -4,7 +4,7 @@ import '../widgets/main_drawer.dart';
 import 'algorithm_screen.dart';
 import 'report_screen.dart';
 import '../models/meal.dart';
-import './filters_screen.dart';
+import 'watchlist_screen.dart';
 import 'news_screen.dart';
 
 class TabsScreen extends StatefulWidget {
@@ -33,7 +33,7 @@ class _TabsScreenState extends State<TabsScreen> {
         'title': 'Algorithm',
       },
       {
-        'page': FiltersScreen(),
+        'page': WatchListScreen(),
         'title': 'Filter',
       },
       {

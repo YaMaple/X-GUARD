@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../screens/filters_screen.dart';
+import '../screens/watchlist_screen.dart';
 
 class MainDrawer extends StatelessWidget {
   Widget buildListTile(String title, IconData icon, Function() tapHandler) {
@@ -47,7 +47,8 @@ class MainDrawer extends StatelessWidget {
             Navigator.of(context).pushReplacementNamed('/');
           }),
           buildListTile('Filters', Icons.settings, () {
-            Navigator.of(context).pushReplacementNamed(FiltersScreen.routeName);
+            Navigator.of(context)
+                .pushReplacementNamed(WatchListScreen.routeName);
           }),
         ],
       ),

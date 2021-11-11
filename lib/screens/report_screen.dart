@@ -3,8 +3,6 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:pdf/pdf.dart';
 import 'package:printing/printing.dart';
-import '../dummy_data.dart';
-import '../widgets/category_item.dart';
 import 'dart:async';
 
 import 'package:pdf/widgets.dart' as pw;

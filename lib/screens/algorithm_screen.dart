@@ -41,43 +41,27 @@ class AlgorithmScreenState extends State<AlgorithmScreen> {
 
   @override
   Widget build(BuildContext context) {
-    if (widget.favoriteMeals.isEmpty) {
-      return Scaffold(
-          appBar: AppBar(
-            title: Text('Favorites'),
+    return Scaffold(
+        appBar: AppBar(
+          title: Text('Favorites'),
+        ),
+        body: Container(
+          padding: EdgeInsets.all(10),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: <Widget>[
+              TextField(
+                decoration: InputDecoration(labelText: 'Title'),
+                controller: titleController,
+                onSubmitted: (_) => submitData(),
+              ),
+              TextField(
+                decoration: InputDecoration(labelText: 'Amount'),
+                controller: amountController,
+                onSubmitted: (_) => submitData(),
+              ),
+            ],
           ),
-          body: Container(
-            padding: EdgeInsets.all(10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: <Widget>[
-                TextField(
-                  decoration: InputDecoration(labelText: 'Title'),
-                  controller: titleController,
-                  onSubmitted: (_) => submitData(),
-                ),
-                TextField(
-                  decoration: InputDecoration(labelText: 'Amount'),
-                  controller: amountController,
-                  onSubmitted: (_) => submitData(),
-                ),
-              ],
-            ),
-          ));
-    } else {
-      return ListView.builder(
-        itemBuilder: (ctx, index) {
-          return MealItem(
-            id: widget.favoriteMeals[index].id,
-            title: widget.favoriteMeals[index].title,
-            imageUrl: widget.favoriteMeals[index].imageUrl,
-            duration: widget.favoriteMeals[index].duration,
-            affordability: widget.favoriteMeals[index].affordability,
-            complexity: widget.favoriteMeals[index].complexity,
-          );
-        },
-        itemCount: widget.favoriteMeals.length,
-      );
-    }
+        ));
   }
 }

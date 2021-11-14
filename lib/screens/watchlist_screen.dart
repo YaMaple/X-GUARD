@@ -4,22 +4,26 @@ class CardDetail {
   String title;
   String subtitle_1;
   String subtitle_2;
+  int index;
 
   CardDetail(
       {required this.title,
       required this.subtitle_1,
-      required this.subtitle_2});
+      required this.subtitle_2,
+      required this.index});
 }
 
 class CardListTile extends StatelessWidget {
   final String title;
   final String subtitle_1;
   final String subtitle_2;
+  final int index;
 
   CardListTile(
       {required this.title,
       required this.subtitle_1,
-      required this.subtitle_2});
+      required this.subtitle_2,
+      required this.index});
 
   @override
   Widget build(BuildContext context) {
@@ -37,11 +41,11 @@ class CardListTile extends StatelessWidget {
       ),
       child: ListTile(
         contentPadding: EdgeInsets.symmetric(
-          horizontal: 20.0,
+          horizontal: 10.0,
           vertical: 5.0,
         ),
         leading: Container(
-          padding: EdgeInsets.only(right: 12.0),
+          padding: EdgeInsets.only(right: 3.0),
           decoration: BoxDecoration(
             border: Border(
               right: BorderSide(
@@ -67,19 +71,10 @@ class CardListTile extends StatelessWidget {
             Icon(
               Icons.star,
               color: Colors.yellow[900],
+              size: 15,
             ),
-            Icon(
-              Icons.star,
-              color: Colors.yellow[900],
-            ),
-            Icon(
-              Icons.star,
-              color: Colors.yellow[900],
-            ),
-            Icon(
-              Icons.star,
-              color: Colors.yellow[900],
-            ),
+            Icon(Icons.star, color: Colors.yellow[900], size: 15),
+            Icon(Icons.star, color: Colors.yellow[900], size: 15),
             SizedBox(
               width: 10,
             ),
@@ -102,7 +97,7 @@ class CardListTile extends StatelessWidget {
           size: 30.0,
         ),
         onTap: () {
-          Navigator.of(context).pushNamed('/algorithm', arguments: 1);
+          Navigator.of(context).pushNamed('/algorithm', arguments: index);
         },
       ),
     );
@@ -113,10 +108,17 @@ class WatchListScreen extends StatelessWidget {
   static const routeName = '/filters';
 
   final List<CardDetail> cards = [
-    CardDetail(title: 'Meta', subtitle_1: '\$200,000', subtitle_2: '2017'),
-    CardDetail(title: 'LinkedIn', subtitle_1: '\$30,000', subtitle_2: '2018'),
-    CardDetail(title: 'Amazon', subtitle_1: '\$15,000', subtitle_2: '2019'),
-    CardDetail(title: 'Google', subtitle_1: '\$80,0000', subtitle_2: '2021'),
+    CardDetail(
+        title: 'Meta', subtitle_1: '\$200,000', subtitle_2: '2017', index: 0),
+    CardDetail(
+        title: 'LinkedIn',
+        subtitle_1: '\$30,000',
+        subtitle_2: '2018',
+        index: 1),
+    CardDetail(
+        title: 'Amazon', subtitle_1: '\$15,000', subtitle_2: '2019', index: 2),
+    CardDetail(
+        title: 'Google', subtitle_1: '\$80,0000', subtitle_2: '2021', index: 3),
   ];
 
   @override
@@ -132,6 +134,7 @@ class WatchListScreen extends StatelessWidget {
           title: cards[index].title,
           subtitle_1: cards[index].subtitle_1,
           subtitle_2: cards[index].subtitle_2,
+          index: cards[index].index,
         ),
       ),
     );

@@ -64,6 +64,10 @@ flutter:
     - assets/images/folder.svg
     - assets/images/unknown.svg
     - assets/images/Documents.svg
+    - assets/images/Microsoft.png
+    - assets/images/Meta.png
+    - assets/images/LinkedIn.png
+    - assets/images/Amazon.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

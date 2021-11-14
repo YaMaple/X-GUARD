@@ -15,12 +15,14 @@ const offRoadColor = Color(0xFFFFF59D);
 
 List<RawDataSet> company_backup = [
   RawDataSet(
-    title: 'Amazon',
+    title: 'Meta',
+    imageUrl: 'assets/images/Meta.png',
     color: fashionColor,
     values: [300, 50, 250, 130, 100, 210],
   ),
   RawDataSet(
-    title: 'Google',
+    title: 'LinkedIn',
+    imageUrl: 'assets/images/LinkedIn.png',
     color: artColor,
     values: [250, 100, 200, 80, 270, 230],
   ),
@@ -30,12 +32,13 @@ class RawDataSet {
   final String title;
   final Color color;
   final List<double> values;
+  final String imageUrl;
 
-  RawDataSet({
-    required this.title,
-    required this.color,
-    required this.values,
-  });
+  RawDataSet(
+      {required this.title,
+      required this.color,
+      required this.values,
+      required this.imageUrl});
 }
 
 class AlgorithmScreen extends StatefulWidget {
@@ -101,6 +104,7 @@ class AlgorithmScreenState extends State<AlgorithmScreen> {
 
   @override
   Widget build(BuildContext context) {
+    int index = ModalRoute.of(context)!.settings.arguments as int;
     return Scaffold(
         appBar: AppBar(
           title: Text('Favorites'),
@@ -113,21 +117,15 @@ class AlgorithmScreenState extends State<AlgorithmScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: <Widget>[
-                  TextField(
-                    decoration: InputDecoration(labelText: 'Title'),
-                    controller: titleController,
-                    onSubmitted: (_) => submitData(),
-                  ),
-                  TextField(
-                    decoration: InputDecoration(labelText: 'Amount'),
-                    controller: amountController,
-                    onSubmitted: (_) => submitData(),
-                  ),
+                  Image(
+                    image: AssetImage(company_backup[index].imageUrl),
+                    fit: BoxFit.cover,
+                  )
                 ],
               ),
             ),
             AspectRatio(
-                aspectRatio: 1.3,
+                aspectRatio: 1.1,
                 child: RadarChart(
                   RadarChartData(
                     radarTouchData: RadarTouchData(

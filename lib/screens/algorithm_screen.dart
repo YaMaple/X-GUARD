@@ -13,20 +13,18 @@ const boxingColor = Color(0xff83dea7);
 const entertainmentColor = Colors.white70;
 const offRoadColor = Color(0xFFFFF59D);
 
-List<RawDataSet> rawDataSets() {
-  return [
-    RawDataSet(
-      title: 'Amazon',
-      color: fashionColor,
-      values: [300, 50, 250, 130, 100, 210],
-    ),
-    RawDataSet(
-      title: 'Google',
-      color: artColor,
-      values: [250, 100, 200, 80, 270, 230],
-    ),
-  ];
-}
+List<RawDataSet> company_backup = [
+  RawDataSet(
+    title: 'Amazon',
+    color: fashionColor,
+    values: [300, 50, 250, 130, 100, 210],
+  ),
+  RawDataSet(
+    title: 'Google',
+    color: artColor,
+    values: [250, 100, 200, 80, 270, 230],
+  ),
+];
 
 class RawDataSet {
   final String title;
@@ -41,9 +39,8 @@ class RawDataSet {
 }
 
 class AlgorithmScreen extends StatefulWidget {
-  final List<Meal> favoriteMeals;
-
-  AlgorithmScreen(this.favoriteMeals);
+  static const routeName = '/algorithm';
+  AlgorithmScreen();
 
   @override
   AlgorithmScreenState createState() => AlgorithmScreenState();
@@ -73,7 +70,12 @@ class AlgorithmScreenState extends State<AlgorithmScreen> {
   }
 
   List<RadarDataSet> showingDataSets() {
-    return rawDataSets().asMap().entries.map((entry) {
+    int index = ModalRoute.of(context)!.settings.arguments as int;
+    return company_backup
+        .sublist(index, index + 1)
+        .asMap()
+        .entries
+        .map((entry) {
       var index = entry.key;
       var rawDataSet = entry.value;
 

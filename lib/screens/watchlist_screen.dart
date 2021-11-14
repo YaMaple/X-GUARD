@@ -101,6 +101,9 @@ class CardListTile extends StatelessWidget {
           color: Colors.grey,
           size: 30.0,
         ),
+        onTap: () {
+          Navigator.of(context).pushNamed('/algorithm', arguments: 1);
+        },
       ),
     );
   }

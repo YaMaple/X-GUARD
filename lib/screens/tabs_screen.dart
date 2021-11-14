@@ -29,7 +29,7 @@ class _TabsScreenState extends State<TabsScreen> {
         'title': 'Report',
       },
       {
-        'page': AlgorithmScreen(widget.favoriteMeals),
+        'page': AlgorithmScreen(),
         'title': 'Algorithm',
       },
       {

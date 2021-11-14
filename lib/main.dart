@@ -9,6 +9,7 @@ import 'screens/report_screen.dart';
 import 'models/meal.dart';
 import 'screens/login/login_screen.dart';
 import 'screens/login/signup_screen.dart';
+import 'screens/algorithm_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -79,6 +80,7 @@ class _MyAppState extends State<MyApp> {
         WatchListScreen.routeName: (ctx) => WatchListScreen(),
         LoginScreen.routeName: (ctx) => LoginScreen(),
         SignUpScreen.routeName: (ctx) => SignUpScreen(),
+        AlgorithmScreen.routeName: (ctx) => AlgorithmScreen()
       },
       onGenerateRoute: (settings) {
         print(settings.arguments);

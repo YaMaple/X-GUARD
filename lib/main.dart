@@ -71,7 +71,7 @@ class _MyAppState extends State<MyApp> {
             )),
       ),
       // home: CategoriesScreen(),
-      initialRoute: '/login', // default is '/'
+      initialRoute: '/', // default is '/'
       routes: {
         '/': (ctx) => TabsScreen(),
         NewsScreen.routeName: (ctx) => NewsScreen(),

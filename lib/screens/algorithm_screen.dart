@@ -55,21 +55,31 @@ class AlgorithmScreenState extends State<AlgorithmScreen> {
 
   int selectedDataSetIndex = -1;
 
-  Future<void> submitData() async {
+  void submitData() async {
     print("submit data");
     print(titleController.text);
     print(amountController.text);
 
-    final para = {
-      'a1': 'one',
-      'a2': 'two',
-    };
+    // final para = {
+    //   'name': 'TY',
+    // };
 
-    final uri = Uri.https('httpbin.org', '/anything', para);
-    final response = await http.get(uri);
-    final extractedData = json.decode(response.body) as Map<String, dynamic>;
-    print(extractedData);
-    print(extractedData['headers']['Accept']);
+    // final uri = Uri.http('ftec5510.herokuapp.com', '/user', para);
+    // final response = await http.get(uri);
+    // final extractedData = json.decode(response.body) as Map<String, dynamic>;
+    // print(extractedData);
+    // print(extractedData['headers']['Accept']);
+
+    var url = Uri.parse('http://ftec5510.herokuapp.com/user');
+    var response = await http.post(url, body: {
+      'name': 'hjo',
+      'email': 'cc@163.com',
+      'password': '123456',
+      'bank': 'EMO Bank',
+      'field': 'tech'
+    });
+    print(response.statusCode);
+    print(response.body);
   }
 
   List<RadarDataSet> showingDataSets() {
@@ -124,6 +134,7 @@ class AlgorithmScreenState extends State<AlgorithmScreen> {
                 ],
               ),
             ),
+            TextButton(onPressed: submitData, child: Text('TextButton')),
             AspectRatio(
                 aspectRatio: 1.1,
                 child: RadarChart(

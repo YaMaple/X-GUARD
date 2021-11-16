@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-
+import 'profile.dart';
 import '../widgets/main_drawer.dart';
 import 'algorithm_screen.dart';
-import 'report_screen.dart';
 import '../models/meal.dart';
 import 'watchlist_screen.dart';
 import 'news_screen.dart';
@@ -25,7 +24,7 @@ class _TabsScreenState extends State<TabsScreen> {
   void initState() {
     _pages = [
       {
-        'page': ReportScreen(),
+        'page': ProfileScreen(),
         'title': 'Report',
       },
       {

@@ -68,6 +68,13 @@ flutter:
     - assets/images/Meta.png
     - assets/images/LinkedIn.png
     - assets/images/Amazon.png
+    - assets/images/profile.png
+    - assets/images/Camera Icon.svg
+    - assets/images/User Icon.svg
+    - assets/images/Bell.svg
+    - assets/images/Settings.svg
+    - assets/images/Question mark.svg
+    - assets/images/Log out.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

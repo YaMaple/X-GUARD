@@ -206,24 +206,19 @@ FutureOr<Uint8List> buildPdf(PdfPageFormat format) async {
               pw.SizedBox(width: 10),
               pw.Expanded(
                   flex: 3,
-                  child: pw.Column(children: [
-                    pw.Container(
-                      alignment: pw.Alignment.centerLeft,
-                      padding: const pw.EdgeInsets.only(bottom: 10),
-                      child: pw.Text(
-                        'Spent vs. Saved',
-                        style: pw.TextStyle(
-                          color: baseColor,
-                          fontSize: 16,
-                        ),
-                      ),
-                    ),
-                    // 右列正文
-                    pw.Text(
-                      'Budget was originally budget. A total of expense was spent on the month of January which exceeded the overall budget by',
-                      textAlign: pw.TextAlign.justify,
-                    )
-                  ]))
+                  child: pw.Column(
+                      crossAxisAlignment: pw.CrossAxisAlignment.start,
+                      children: [
+                        pw.Text("Basic info:"),
+                        pw.Text("Company:"),
+                        pw.Text("LoanType:"),
+                        pw.Text("Settlement:"),
+                        pw.Text("maturity:"),
+                        pw.Text("Bank:"),
+                        pw.Text("Manager:"),
+                        pw.Text("Amount:"),
+                        pw.Text("Interest rate:"),
+                      ]))
             ]),
             // 柱状图
             // pw.Expanded(flex: 3, child: chart1),

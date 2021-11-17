@@ -1,9 +1,12 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'dart:convert';
-import '../models/meal.dart';
+import 'package:pdf/pdf.dart';
+import 'generate_report.dart';
+
 import 'package:http/http.dart' as http;
 import 'package:fl_chart/fl_chart.dart';
+import 'package:printing/printing.dart';
 
 const gridColor = Color(0xff68739f);
 const titleColor = Color(0xff8c95db);
@@ -119,6 +122,20 @@ class AlgorithmScreenState extends State<AlgorithmScreen> {
         appBar: AppBar(
           title: Text('Favorites'),
           backgroundColor: Color.fromARGB(0xff, 0x14, 0x27, 0x4e),
+        ),
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.print),
+          tooltip: 'Print Report',
+          onPressed: () {
+            Printing.layoutPdf(
+              // [onLayout] will be called multiple times
+              // when the user changes the printer or printer settings
+              onLayout: (PdfPageFormat format) {
+                // Any valid Pdf document can be returned here as a list of int
+                return buildPdf(format);
+              },
+            );
+          },
         ),
         body: Column(
           children: <Widget>[

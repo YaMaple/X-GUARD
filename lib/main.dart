@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_complete_guide/screens/algorithm_screen.dart';
 
 import 'dummy_data.dart';
 import 'screens/tabs_screen.dart';
@@ -79,7 +80,8 @@ class _MyAppState extends State<MyApp> {
         WatchListScreen.routeName: (ctx) => WatchListScreen(),
         LoginScreen.routeName: (ctx) => LoginScreen(),
         SignUpScreen.routeName: (ctx) => SignUpScreen(),
-        ProfileScreen.routeName: (ctx) => ProfileScreen()
+        ProfileScreen.routeName: (ctx) => ProfileScreen(),
+        AlgorithmScreen.routeName: (ctx) => AlgorithmScreen()
       },
       onGenerateRoute: (settings) {
         print(settings.arguments);

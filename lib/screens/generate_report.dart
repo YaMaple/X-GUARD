@@ -201,7 +201,10 @@ FutureOr<Uint8List> buildPdf(PdfPageFormat format) async {
                     pw.Text(
                       'Total expenses are broken into different categories for closer look into where the money was spent.',
                       textAlign: pw.TextAlign.justify,
-                    )
+                    ),
+                    pw.ConstrainedBox(
+                        constraints: pw.BoxConstraints(maxHeight: 100),
+                        child: chart1)
                   ])),
               pw.SizedBox(width: 10),
               pw.Expanded(

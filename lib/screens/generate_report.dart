@@ -20,14 +20,6 @@ FutureOr<Uint8List> buildPdf(PdfPageFormat format) async {
     ['Insurance', 250, 310],
   ];
 
-  // Some summary maths
-  final budget = dataTable
-      .map((e) => e[1] as num)
-      .reduce((value, element) => value + element);
-  final expense = dataTable
-      .map((e) => e[2] as num)
-      .reduce((value, element) => value + element);
-
   final baseColor = PdfColors.cyan;
 
   // Create a PDF document.
@@ -42,30 +34,20 @@ FutureOr<Uint8List> buildPdf(PdfPageFormat format) async {
   final chart1 = pw.Chart(
     left: pw.Container(
       alignment: pw.Alignment.topCenter,
-      margin: const pw.EdgeInsets.only(right: 5, top: 10),
+      // margin: const pw.EdgeInsets.only(right: 5, top: 10),
       child: pw.Transform.rotateBox(
         angle: pi / 2,
-        child: pw.Text('Amount'),
-      ),
-    ),
-    overlay: pw.ChartLegend(
-      position: const pw.Alignment(-.7, 1),
-      decoration: pw.BoxDecoration(
-        color: PdfColors.white,
-        border: pw.Border.all(
-          color: PdfColors.black,
-          width: .5,
-        ),
+        child: pw.Text('Amount', style: pw.TextStyle(fontSize: 10)),
       ),
     ),
     grid: pw.CartesianGrid(
       xAxis: pw.FixedAxis.fromStrings(
-        List<String>.generate(
-            dataTable.length, (index) => dataTable[index][0] as String),
-        marginStart: 30,
-        marginEnd: 30,
-        ticks: true,
-      ),
+          List<String>.generate(
+              dataTable.length, (index) => dataTable[index][0] as String),
+          marginStart: 30,
+          marginEnd: 30,
+          ticks: true,
+          textStyle: pw.TextStyle(fontSize: 10)),
       yAxis: pw.FixedAxis(
         [0, 100, 200, 300, 400, 500, 600, 700],
         format: (v) => '\$$v',
@@ -74,24 +56,9 @@ FutureOr<Uint8List> buildPdf(PdfPageFormat format) async {
     ),
     datasets: [
       pw.BarDataSet(
-        color: PdfColors.blue100,
-        legend: tableHeaders[2],
-        width: 15,
-        offset: -10,
-        borderColor: baseColor,
-        data: List<pw.LineChartValue>.generate(
-          dataTable.length,
-          (i) {
-            final v = dataTable[i][2] as num;
-            return pw.LineChartValue(i.toDouble(), v.toDouble());
-          },
-        ),
-      ),
-      pw.BarDataSet(
         color: PdfColors.amber100,
         legend: tableHeaders[1],
         width: 15,
-        offset: 10,
         borderColor: PdfColors.amber,
         data: List<pw.LineChartValue>.generate(
           dataTable.length,
@@ -106,11 +73,13 @@ FutureOr<Uint8List> buildPdf(PdfPageFormat format) async {
 
   // Left curved line chart
   final chart2 = pw.Chart(
-    right: pw.ChartLegend(),
+    bottom: pw.ChartLegend(direction: pw.Axis.horizontal),
     grid: pw.CartesianGrid(
-      xAxis: pw.FixedAxis([0, 1, 2, 3, 4, 5, 6]),
+      xAxis: pw.FixedAxis([0, 1, 2, 3, 4, 5, 6],
+          textStyle: pw.TextStyle(fontSize: 10)),
       yAxis: pw.FixedAxis(
         [0, 200, 400, 600],
+        textStyle: pw.TextStyle(fontSize: 10),
         divisions: true,
       ),
     ),
@@ -129,39 +98,21 @@ FutureOr<Uint8List> buildPdf(PdfPageFormat format) async {
           },
         ),
       ),
-    ],
-  );
-
-  // Data table
-  final table = pw.Table.fromTextArray(
-    border: null,
-    headers: tableHeaders,
-    data: List<List<dynamic>>.generate(
-      dataTable.length,
-      (index) => <dynamic>[
-        dataTable[index][0],
-        dataTable[index][1],
-        dataTable[index][2],
-        (dataTable[index][1] as num) - (dataTable[index][2] as num),
-      ],
-    ),
-    headerStyle: pw.TextStyle(
-      color: PdfColors.white,
-      fontWeight: pw.FontWeight.bold,
-    ),
-    headerDecoration: pw.BoxDecoration(
-      color: baseColor,
-    ),
-    rowDecoration: pw.BoxDecoration(
-      border: pw.Border(
-        bottom: pw.BorderSide(
-          color: baseColor,
-          width: .5,
+      pw.LineDataSet(
+        legend: 'Budget',
+        drawSurface: true,
+        isCurved: true,
+        drawPoints: false,
+        color: PdfColors.amber300,
+        data: List<pw.LineChartValue>.generate(
+          dataTable.length,
+          (i) {
+            final v = dataTable[i][1] as num;
+            return pw.LineChartValue(i.toDouble(), v.toDouble());
+          },
         ),
       ),
-    ),
-    cellAlignment: pw.Alignment.centerRight,
-    cellAlignments: {0: pw.Alignment.centerLeft},
+    ],
   );
 
   // Add page to the PDF
@@ -204,7 +155,10 @@ FutureOr<Uint8List> buildPdf(PdfPageFormat format) async {
                     ),
                     pw.ConstrainedBox(
                         constraints: pw.BoxConstraints(maxHeight: 100),
-                        child: chart1)
+                        child: chart1),
+                    pw.ConstrainedBox(
+                        constraints: pw.BoxConstraints(maxHeight: 150),
+                        child: chart2)
                   ])),
               pw.SizedBox(width: 10),
               pw.Expanded(
@@ -223,115 +177,9 @@ FutureOr<Uint8List> buildPdf(PdfPageFormat format) async {
                         pw.Text("Interest rate:"),
                       ]))
             ]),
-            // 柱状图
-            // pw.Expanded(flex: 3, child: chart1),
             pw.Divider(),
             // 波形图
-            // pw.Expanded(flex: 2, child: chart2),
             pw.SizedBox(height: 10),
-            pw.Row(
-              crossAxisAlignment: pw.CrossAxisAlignment.start,
-              children: [
-                pw.Expanded(
-                    child: pw.Column(children: [
-                  // Expense by sub-categories
-                  // 左列标题
-                  pw.Container(
-                    alignment: pw.Alignment.centerLeft,
-                    padding: const pw.EdgeInsets.only(bottom: 10),
-                    child: pw.Text(
-                      'Expense By Sub-Categories',
-                      style: pw.TextStyle(
-                        color: baseColor,
-                        fontSize: 16,
-                      ),
-                    ),
-                  ),
-                  // Expense by sub-categories
-                  // 左列正文
-                  pw.Text(
-                    'Total expenses are broken into different categories for closer look into where the money was spent.',
-                    textAlign: pw.TextAlign.justify,
-                  )
-                ])),
-                pw.SizedBox(width: 10),
-                pw.Expanded(
-                  child: pw.Column(
-                    children: [
-                      // Spent vs. Saved
-                      // 右列标题
-                      pw.Container(
-                        alignment: pw.Alignment.centerLeft,
-                        padding: const pw.EdgeInsets.only(bottom: 10),
-                        child: pw.Text(
-                          'Spent vs. Saved',
-                          style: pw.TextStyle(
-                            color: baseColor,
-                            fontSize: 16,
-                          ),
-                        ),
-                      ),
-                      // 右列正文
-                      pw.Text(
-                        'Budget was originally \$$budget. A total of \$$expense was spent on the month of January which exceeded the overall budget by \$${expense - budget}',
-                        textAlign: pw.TextAlign.justify,
-                      )
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ],
-        );
-      },
-    ),
-  );
-
-  // Second page with a pie chart
-  document.addPage(
-    pw.Page(
-      pageFormat: format,
-      theme: theme,
-      build: (context) {
-        const chartColors = [
-          PdfColors.blue300,
-          PdfColors.green300,
-          PdfColors.amber300,
-          PdfColors.pink300,
-          PdfColors.cyan300,
-          PdfColors.purple300,
-          PdfColors.lime300,
-        ];
-
-        return pw.Column(
-          children: [
-            pw.Flexible(
-              // expense breakdown 饼图
-              child: pw.Chart(
-                title: pw.Text(
-                  'Expense breakdown',
-                  style: pw.TextStyle(
-                    color: baseColor,
-                    fontSize: 20,
-                  ),
-                ),
-                grid: pw.PieGrid(),
-                datasets: List<pw.Dataset>.generate(dataTable.length, (index) {
-                  final data = dataTable[index];
-                  final color = chartColors[index % chartColors.length];
-                  final value = (data[2] as num).toDouble();
-                  final pct = (value / expense * 100).round();
-                  return pw.PieDataSet(
-                    legend: '${data[0]}\n$pct%',
-                    value: value,
-                    color: color,
-                    legendStyle: const pw.TextStyle(fontSize: 10),
-                  );
-                }),
-              ),
-            ),
-            // 表格
-            table,
           ],
         );
       },

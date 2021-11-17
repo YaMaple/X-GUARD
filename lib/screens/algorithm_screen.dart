@@ -132,7 +132,9 @@ class AlgorithmScreenState extends State<AlgorithmScreen> {
               // when the user changes the printer or printer settings
               onLayout: (PdfPageFormat format) {
                 // Any valid Pdf document can be returned here as a list of int
-                return buildPdf(format);
+                return buildPdf(PdfPageFormat(
+                    210 * PdfPageFormat.mm, 297 * PdfPageFormat.mm,
+                    marginAll: 3 * PdfPageFormat.mm));
               },
             );
           },

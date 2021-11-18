@@ -116,9 +116,12 @@ class WatchListScreen extends StatelessWidget {
         subtitle_2: '2018',
         index: 1),
     CardDetail(
-        title: 'Amazon', subtitle_1: '\$15,000', subtitle_2: '2019', index: 2),
+        title: 'Microsoft',
+        subtitle_1: '\$15,000',
+        subtitle_2: '2019',
+        index: 2),
     CardDetail(
-        title: 'Google', subtitle_1: '\$80,0000', subtitle_2: '2021', index: 3),
+        title: 'Amazon', subtitle_1: '\$80,0000', subtitle_2: '2021', index: 3),
   ];
 
   @override

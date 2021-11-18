@@ -26,15 +26,31 @@ class EasterEggScreen extends StatelessWidget {
                 'It is impossible to build this app',
                 style: TextStyle(fontSize: 25),
               ),
-              SizedBox(height: 30),
+              SizedBox(height: 20),
               Text(
-                'without my lovely teammates',
+                'without my lovely teammates ♥️',
                 style: TextStyle(fontSize: 25),
               ),
               SizedBox(
-                height: 30,
+                height: 60,
               ),
-              Text('hhhh')
+              Text('HAN Tianyang',
+                  style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold)),
+              SizedBox(
+                height: 20,
+              ),
+              Text('YANG Jiaqi',
+                  style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold)),
+              SizedBox(
+                height: 20,
+              ),
+              Text('ZHANG Jiawei',
+                  style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold)),
+              SizedBox(
+                height: 20,
+              ),
+              Text('ZHANG Nian',
+                  style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold)),
             ])));
   }
 }

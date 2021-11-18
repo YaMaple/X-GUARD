@@ -1,6 +1,5 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
-import 'dart:convert';
+import 'package:flutter_complete_guide/dummy_data.dart';
 import 'package:pdf/pdf.dart';
 import 'generate_report.dart';
 
@@ -130,7 +129,7 @@ class AlgorithmScreenState extends State<AlgorithmScreen> {
     int index = ModalRoute.of(context)!.settings.arguments as int;
     return Scaffold(
         appBar: AppBar(
-          title: Text('Favorites'),
+          title: Text(company_backup[index].title),
           backgroundColor: Color.fromARGB(0xff, 0x14, 0x27, 0x4e),
         ),
         floatingActionButton: FloatingActionButton(

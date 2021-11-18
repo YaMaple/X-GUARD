@@ -207,7 +207,7 @@ class AlgorithmScreenState extends State<AlgorithmScreen> {
                     },
                     tickCount: 7,
                     ticksTextStyle:
-                        const TextStyle(color: Colors.black, fontSize: 10),
+                        const TextStyle(color: Colors.black, fontSize: 12),
                     tickBorderData: const BorderSide(color: Colors.black),
                     gridBorderData:
                         const BorderSide(color: gridColor, width: 2),

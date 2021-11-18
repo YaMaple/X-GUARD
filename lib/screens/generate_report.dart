@@ -1,6 +1,5 @@
 import 'dart:typed_data';
 import 'dart:math';
-import 'package:flutter/material.dart';
 import 'package:pdf/pdf.dart';
 import 'package:printing/printing.dart';
 import 'dart:async';
@@ -11,13 +10,12 @@ FutureOr<Uint8List> buildPdf(PdfPageFormat format) async {
   const tableHeaders = ['Category', 'Budget', 'Expense', 'Result'];
 
   const dataTable = [
-    ['Phone', 80, 95],
-    ['Internet', 250, 230],
-    ['Electricity', 300, 375],
-    ['Movies', 85, 80],
-    ['Food', 300, 350],
-    ['Fuel', 650, 550],
-    ['Insurance', 250, 310],
+    ['ROA', 80, 30],
+    ['Asset Turnover', 70, 40],
+    ['Leverage Ratio', 60, 12],
+    ['Liquidity Ratio', 30, 60],
+    ['Current Ratio', 45, 70],
+    ['Quick Ratio', 88, 28],
   ];
 
   final baseColor = PdfColors.cyan;
@@ -32,12 +30,13 @@ FutureOr<Uint8List> buildPdf(PdfPageFormat format) async {
 
   // Top bar chart
   final chart1 = pw.Chart(
+    title: pw.Text('Related financial ratios'),
     left: pw.Container(
       alignment: pw.Alignment.topCenter,
       // margin: const pw.EdgeInsets.only(right: 5, top: 10),
       child: pw.Transform.rotateBox(
         angle: pi / 2,
-        child: pw.Text('Amount', style: pw.TextStyle(fontSize: 10)),
+        child: pw.Text('Ratios', style: pw.TextStyle(fontSize: 10)),
       ),
     ),
     grid: pw.CartesianGrid(
@@ -47,10 +46,10 @@ FutureOr<Uint8List> buildPdf(PdfPageFormat format) async {
           marginStart: 30,
           marginEnd: 30,
           ticks: true,
-          textStyle: pw.TextStyle(fontSize: 10)),
+          textStyle: pw.TextStyle(fontSize: 7)),
       yAxis: pw.FixedAxis(
-        [0, 100, 200, 300, 400, 500, 600, 700],
-        format: (v) => '\$$v',
+        [0, 20, 40, 60, 80, 100],
+        format: (v) => '%$v',
         divisions: true,
       ),
     ),
@@ -73,19 +72,20 @@ FutureOr<Uint8List> buildPdf(PdfPageFormat format) async {
 
   // Left curved line chart
   final chart2 = pw.Chart(
+    title: pw.Text('Default Probability Trend'),
     bottom: pw.ChartLegend(direction: pw.Axis.horizontal),
     grid: pw.CartesianGrid(
-      xAxis: pw.FixedAxis([0, 1, 2, 3, 4, 5, 6],
+      xAxis: pw.FixedAxis([0, 1, 2, 3, 4, 5],
           textStyle: pw.TextStyle(fontSize: 10)),
       yAxis: pw.FixedAxis(
-        [0, 200, 400, 600],
+        [0, 20, 40, 60, 80, 100],
         textStyle: pw.TextStyle(fontSize: 10),
         divisions: true,
       ),
     ),
     datasets: [
       pw.LineDataSet(
-        legend: 'Expense',
+        legend: 'Default Probability Trend',
         drawSurface: true,
         isCurved: true,
         drawPoints: false,
@@ -99,7 +99,7 @@ FutureOr<Uint8List> buildPdf(PdfPageFormat format) async {
         ),
       ),
       pw.LineDataSet(
-        legend: 'Budget',
+        legend: 'Company Industrial Average',
         drawSurface: true,
         isCurved: true,
         drawPoints: false,
@@ -140,7 +140,7 @@ FutureOr<Uint8List> buildPdf(PdfPageFormat format) async {
                       alignment: pw.Alignment.centerLeft,
                       padding: const pw.EdgeInsets.only(bottom: 10),
                       child: pw.Text(
-                        'Expense By Sub-Categories',
+                        'General Comments',
                         style: pw.TextStyle(
                           color: baseColor,
                           fontSize: 16,
@@ -150,7 +150,8 @@ FutureOr<Uint8List> buildPdf(PdfPageFormat format) async {
                     // Expense by sub-categories
                     // 左列正文
                     pw.Text(
-                      'Total expenses are broken into different categories for closer look into where the money was spent.',
+                      '''[Sample Name]dosen''t have default history. Since the settlement of this loan,[Sample Name] has been paying loan in time periodically.
+[Sample Name]has once default in [DD/MM/YY],the default amount was [? thousand HKD]. Since the settlement of this loan,[Sample Name] has been paying back loan in time periodically./[Sample Name] has the record of non-payment overdue.''',
                       textAlign: pw.TextAlign.justify,
                     ),
                     pw.ConstrainedBox(

@@ -28,7 +28,7 @@ class EasterEggScreen extends StatelessWidget {
               ),
               SizedBox(height: 20),
               Text(
-                'without my lovely teammates ♥️',
+                'without you ♥️',
                 style: TextStyle(fontSize: 25),
               ),
               SizedBox(

@@ -159,59 +159,6 @@ FutureOr<Uint8List> buildPdf(PdfPageFormat format) async {
                     pw.ConstrainedBox(
                         constraints: pw.BoxConstraints(maxHeight: 150),
                         child: chart2),
-                    pw.Table.fromTextArray(
-                        defaultColumnWidth: pw.FlexColumnWidth(1),
-                        cellHeight: 20,
-                        headerCount: 0,
-                        context: context,
-                        cellAlignment: pw.Alignment.center,
-                        data: const <List<String>>[
-                          <String>[
-                            'Risk Indicator',
-                            'Performance',
-                          ],
-                          <String>['Industry', 'XXXX'],
-                        ]),
-                    pw.Row(children: [
-                      pw.Expanded(
-                          child: pw.Table.fromTextArray(
-                              headerCount: 0,
-                              context: context,
-                              cellHeight: 92,
-                              cellAlignment: pw.Alignment.center,
-                              data: const <List<String>>[
-                            <String>[
-                              'Operating Condition',
-                            ],
-                          ])),
-                      pw.Expanded(
-                          child: pw.Table.fromTextArray(
-                              context: context,
-                              headerCount: 0,
-                              cellHeight: 20,
-                              defaultColumnWidth: pw.FlexColumnWidth(1),
-                              cellAlignment: pw.Alignment.center,
-                              data: const <List<String>>[
-                            <String>['Health', '9'],
-                            <String>['Profit', '6'],
-                            <String>['Safety', '5'],
-                            <String>['peer performance', '7']
-                          ])),
-                    ]),
-                    pw.Table.fromTextArray(
-                        defaultColumnWidth: pw.FlexColumnWidth(1),
-                        cellHeight: 20,
-                        headerCount: 0,
-                        context: context,
-                        cellAlignment: pw.Alignment.center,
-                        data: const <List<String>>[
-                          <String>[
-                            'Legal Condition',
-                            'one contract',
-                          ],
-                          <String>['company', 'no relation change'],
-                          <String>['credit', '9']
-                        ]),
                   ])),
               pw.SizedBox(width: 10),
               pw.Expanded(
@@ -228,6 +175,60 @@ FutureOr<Uint8List> buildPdf(PdfPageFormat format) async {
                         pw.Text("Manager:"),
                         pw.Text("Amount:"),
                         pw.Text("Interest rate:"),
+                        pw.Table.fromTextArray(
+                            defaultColumnWidth: pw.FlexColumnWidth(1),
+                            cellHeight: 10,
+                            headerCount: 0,
+                            context: context,
+                            cellAlignment: pw.Alignment.center,
+                            data: const <List<String>>[
+                              <String>[
+                                'Risk Indicator',
+                                'Performance',
+                              ],
+                              <String>['Industry', 'XXXX'],
+                            ]),
+                        pw.Row(children: [
+                          pw.Expanded(
+                              child: pw.Table.fromTextArray(
+                                  headerCount: 0,
+                                  context: context,
+                                  cellHeight: 67,
+                                  cellAlignment: pw.Alignment.center,
+                                  data: const <List<String>>[
+                                <String>[
+                                  'Operating Condition',
+                                ],
+                              ])),
+                          pw.Expanded(
+                              child: pw.Table.fromTextArray(
+                                  context: context,
+                                  headerCount: 0,
+                                  cellHeight: 10,
+                                  defaultColumnWidth: pw.FlexColumnWidth(1),
+                                  cellAlignment: pw.Alignment.center,
+                                  cellStyle: pw.TextStyle(fontSize: 5),
+                                  data: const <List<String>>[
+                                <String>['Health', '9'],
+                                <String>['Profit', '6'],
+                                <String>['Safety', '5'],
+                                <String>['performance', '7'],
+                              ])),
+                        ]),
+                        pw.Table.fromTextArray(
+                            defaultColumnWidth: pw.FlexColumnWidth(1),
+                            cellHeight: 10,
+                            headerCount: 0,
+                            context: context,
+                            cellAlignment: pw.Alignment.center,
+                            data: const <List<String>>[
+                              <String>[
+                                'Legal Condition',
+                                'one contract',
+                              ],
+                              <String>['company', 'no relation change'],
+                              <String>['credit', '9']
+                            ]),
                       ]))
             ]),
             pw.Divider(),

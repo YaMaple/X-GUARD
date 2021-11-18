@@ -29,6 +29,16 @@ List<RawDataSet> company_backup = [
     color: artColor,
     values: [250, 100, 200, 80, 270, 230],
   ),
+  RawDataSet(
+      title: 'Microsoft',
+      color: boxingColor,
+      values: [130, 120, 40, 230, 80, 190],
+      imageUrl: 'assets/images/Microsoft.png'),
+  RawDataSet(
+      title: 'Amazon',
+      color: gridColor,
+      values: [110, 120, 80, 90, 220, 210],
+      imageUrl: 'assets/images/Amazon.png')
 ];
 
 class RawDataSet {

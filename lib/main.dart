@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_complete_guide/screens/algorithm_screen.dart';
+import 'package:flutter_complete_guide/screens/easter_egg_screen.dart';
 
-import 'dummy_data.dart';
 import 'screens/tabs_screen.dart';
 import 'screens/news_detail_screen.dart';
 import 'screens/news_screen.dart';
 import 'screens/watchlist_screen.dart';
 import 'screens/profile.dart';
-import 'models/meal.dart';
 import 'screens/login/login_screen.dart';
 import 'screens/login/signup_screen.dart';
+import 'screens/easter_egg_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -19,35 +19,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  Map<String, bool> _filters = {
-    'gluten': false,
-    'lactose': false,
-    'vegan': false,
-    'vegetarian': false,
-  };
-  List<Meal> _availableMeals = DUMMY_MEALS;
-  List<Meal> _favoriteMeals = [];
-
-  void _toggleFavorite(String mealId) {
-    final existingIndex =
-        _favoriteMeals.indexWhere((meal) => meal.id == mealId);
-    if (existingIndex >= 0) {
-      setState(() {
-        _favoriteMeals.removeAt(existingIndex);
-      });
-    } else {
-      setState(() {
-        _favoriteMeals.add(
-          DUMMY_MEALS.firstWhere((meal) => meal.id == mealId),
-        );
-      });
-    }
-  }
-
-  bool _isMealFavorite(String id) {
-    return _favoriteMeals.any((meal) => meal.id == id);
-  }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -70,18 +41,17 @@ class _MyAppState extends State<MyApp> {
               fontWeight: FontWeight.bold,
             )),
       ),
-      // home: CategoriesScreen(),
-      initialRoute: '/', // default is '/'
+      initialRoute: LoginScreen.routeName,
       routes: {
         '/': (ctx) => TabsScreen(),
         NewsScreen.routeName: (ctx) => NewsScreen(),
-        NewsDetailScreen.routeName: (ctx) =>
-            NewsDetailScreen(_toggleFavorite, _isMealFavorite),
+        NewsDetailScreen.routeName: (ctx) => NewsDetailScreen(),
         WatchListScreen.routeName: (ctx) => WatchListScreen(),
         LoginScreen.routeName: (ctx) => LoginScreen(),
         SignUpScreen.routeName: (ctx) => SignUpScreen(),
         ProfileScreen.routeName: (ctx) => ProfileScreen(),
-        AlgorithmScreen.routeName: (ctx) => AlgorithmScreen()
+        AlgorithmScreen.routeName: (ctx) => AlgorithmScreen(),
+        EasterEggScreen.routeName: (ctx) => EasterEggScreen()
       },
       onGenerateRoute: (settings) {
         print(settings.arguments);

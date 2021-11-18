@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_complete_guide/screens/easter_egg_screen.dart';
 import 'profile.dart';
 import '../widgets/main_drawer.dart';
 import 'algorithm_screen.dart';
-import '../models/meal.dart';
+import '../models/news.dart';
 import 'watchlist_screen.dart';
 import 'news_screen.dart';
 
 class TabsScreen extends StatefulWidget {
-  final List<Meal> favoriteMeals = [];
+  final List<News> favoriteMeals = [];
   static const routeName = '/tab-screen';
 
   TabsScreen();
@@ -24,20 +25,20 @@ class _TabsScreenState extends State<TabsScreen> {
   void initState() {
     _pages = [
       {
-        'page': ProfileScreen(),
-        'title': 'Report',
-      },
-      {
-        'page': AlgorithmScreen(),
-        'title': 'Algorithm',
+        'page': NewsScreen(),
+        'title': 'News',
       },
       {
         'page': WatchListScreen(),
-        'title': 'Filter',
+        'title': 'Watch',
       },
       {
-        'page': NewsScreen(),
-        'title': 'News',
+        'page': EasterEggScreen(),
+        'title': 'Account',
+      },
+      {
+        'page': ProfileScreen(),
+        'title': 'Me',
       },
     ];
     super.initState();
@@ -67,23 +68,23 @@ class _TabsScreenState extends State<TabsScreen> {
         items: [
           BottomNavigationBarItem(
             backgroundColor: Theme.of(context).primaryColor,
-            icon: Icon(Icons.category),
-            label: 'Categories',
+            icon: Icon(Icons.article),
+            label: 'News',
           ),
           BottomNavigationBarItem(
             backgroundColor: Theme.of(context).primaryColor,
             icon: Icon(Icons.star),
-            label: 'Favorites',
+            label: 'Watch',
           ),
           BottomNavigationBarItem(
             backgroundColor: Theme.of(context).primaryColor,
             icon: Icon(Icons.account_balance),
-            label: 'Filter',
+            label: 'Account',
           ),
           BottomNavigationBarItem(
             backgroundColor: Theme.of(context).primaryColor,
-            icon: Icon(Icons.attach_money),
-            label: 'News',
+            icon: Icon(Icons.person),
+            label: 'Me',
           ),
         ],
       ),

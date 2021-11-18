@@ -6,10 +6,7 @@ import '../dummy_data.dart';
 class NewsDetailScreen extends StatelessWidget {
   static const routeName = '/meal-detail';
 
-  final Function toggleFavorite;
-  final Function isFavorite;
-
-  NewsDetailScreen(this.toggleFavorite, this.isFavorite);
+  NewsDetailScreen();
 
   Widget buildSectionTitle(BuildContext context, String text) {
     return Container(
@@ -38,11 +35,11 @@ class NewsDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final mealId = ModalRoute.of(context)!.settings.arguments as String;
-    final selectedMeal = DUMMY_MEALS.firstWhere((meal) => meal.id == mealId);
+    final newsId = ModalRoute.of(context)!.settings.arguments as int;
     return Scaffold(
       appBar: AppBar(
-        title: Text('${selectedMeal.title}'),
+        title: Text(DUMMY_NEWS[newsId].title),
+        backgroundColor: Color.fromARGB(0xff, 0x14, 0x27, 0x4e),
       ),
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 18.0),
@@ -56,21 +53,20 @@ class NewsDetailScreen extends StatelessWidget {
               //   borderRadius: BorderRadius.circular(25.0),
               // ),
               child: Image(
-                image: AssetImage(selectedMeal.imageUrl),
+                image: AssetImage(DUMMY_NEWS[newsId].imageUrl),
                 fit: BoxFit.cover,
               ),
             ),
             SizedBox(
               height: 12.0,
             ),
-            Text("My Title,", style: kTitleCard.copyWith(fontSize: 28.0)),
+            Text(DUMMY_NEWS[newsId].title,
+                style: kTitleCard.copyWith(fontSize: 28.0)),
             SizedBox(
               height: 12.0,
             ),
             Text(
-              '''The history of modern finance is littered with ideas that worked well enough at small scale—railway bonds, Japanese skyscrapers, sliced-and-diced mortgage securities—but morphed into monstrosities once too many punters piled in. When it comes to sheer size, no mania can compare with that for passive investing. Funds that track the entire market by buying shares in every company in America’s s&p 500, say, rather than guessing which will perform better than average, have attained giant scale. Fully 40% of the total net assets managed by funds in America are in passive vehicles, reckons the Investment Company Institute, an industry group. The phenomenon warrants scrutiny.
-
-Index funds have grown because of the validity of the core insight underpinning them: conventional investment funds are, by and large, a terrible proposition. The vast majority fail to beat the market over the years. Hefty management fees paid by investors in such ventures, often around 1-2% a year (and more for snazzy hedge funds), add up to giant bonuses for stockpickers. Index funds, by contrast, charge nearly nothing (0.04% for a large equity fund) and do a good job of hugging their chosen benchmark. Given time, they almost inevitably leave active managers in the dust.''',
+              DUMMY_NEWS[newsId].content,
               style: descriptionStyle,
             )
           ],

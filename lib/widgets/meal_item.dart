@@ -1,62 +1,25 @@
 import 'package:flutter/material.dart';
 
 import '../screens/news_detail_screen.dart';
-import '../models/meal.dart';
+import '../models/news.dart';
 
-class MealItem extends StatelessWidget {
-  final String id;
+class NewsItem extends StatelessWidget {
+  final int index;
   final String title;
   final String imageUrl;
-  final int duration;
-  final Complexity complexity;
-  final Affordability affordability;
+  final String content;
 
-  MealItem({
-    required this.id,
-    required this.title,
-    required this.imageUrl,
-    required this.affordability,
-    required this.complexity,
-    required this.duration,
-  });
+  NewsItem(
+      {required this.index,
+      required this.title,
+      required this.imageUrl,
+      required this.content});
 
-  String get complexityText {
-    switch (complexity) {
-      case Complexity.Simple:
-        return 'Simple';
-        break;
-      case Complexity.Challenging:
-        return 'Challenging';
-        break;
-      case Complexity.Hard:
-        return 'Hard';
-        break;
-      default:
-        return 'Unknown';
-    }
-  }
-
-  String get affordabilityText {
-    switch (affordability) {
-      case Affordability.Affordable:
-        return 'Affordable';
-        break;
-      case Affordability.Pricey:
-        return 'Pricey';
-        break;
-      case Affordability.Luxurious:
-        return 'Expensive';
-        break;
-      default:
-        return 'Unknown';
-    }
-  }
-
-  void selectMeal(BuildContext context) {
+  void ClickNews(BuildContext context) {
     Navigator.of(context)
         .pushNamed(
       NewsDetailScreen.routeName,
-      arguments: id,
+      arguments: index,
     )
         .then((result) {
       if (result != null) {
@@ -68,7 +31,7 @@ class MealItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => selectMeal(context),
+      onTap: () => ClickNews(context),
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),

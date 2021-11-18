@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/meal_item.dart';
-import '../models/meal.dart';
+import '../models/news.dart';
 
 import '../dummy_data.dart';
 
 class NewsScreen extends StatefulWidget {
   static const routeName = '/category-meals';
-
-  List<Meal> availableMeals = DUMMY_MEALS;
 
   NewsScreen();
 
@@ -18,7 +16,6 @@ class NewsScreen extends StatefulWidget {
 
 class _NewsScreenState extends State<NewsScreen> {
   String categoryTitle = 'HJO Test';
-  List<Meal> displayedMeals = DUMMY_MEALS;
   var _loadedInitData = true;
 
   @override
@@ -37,16 +34,9 @@ class _NewsScreenState extends State<NewsScreen> {
       // displayedMeals = widget.availableMeals.where((meal) {
       //   return meal.categories.contains(categoryId);
       // }).toList();
-      displayedMeals = widget.availableMeals;
       _loadedInitData = true;
     }
     super.didChangeDependencies();
-  }
-
-  void _removeMeal(String mealId) {
-    setState(() {
-      displayedMeals.removeWhere((meal) => meal.id == mealId);
-    });
   }
 
   @override
@@ -58,16 +48,14 @@ class _NewsScreenState extends State<NewsScreen> {
       ),
       body: ListView.builder(
         itemBuilder: (ctx, index) {
-          return MealItem(
-            id: displayedMeals[index].id,
-            title: displayedMeals[index].title,
-            imageUrl: displayedMeals[index].imageUrl,
-            duration: displayedMeals[index].duration,
-            affordability: displayedMeals[index].affordability,
-            complexity: displayedMeals[index].complexity,
+          return NewsItem(
+            index: DUMMY_NEWS[index].index,
+            title: DUMMY_NEWS[index].title,
+            imageUrl: DUMMY_NEWS[index].imageUrl,
+            content: DUMMY_NEWS[index].content,
           );
         },
-        itemCount: displayedMeals.length,
+        itemCount: DUMMY_NEWS.length,
       ),
     );
   }

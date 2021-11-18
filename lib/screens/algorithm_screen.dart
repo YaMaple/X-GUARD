@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_complete_guide/dummy_data.dart';
 import 'package:pdf/pdf.dart';
 import 'generate_report.dart';
 
@@ -164,7 +163,7 @@ class AlgorithmScreenState extends State<AlgorithmScreen> {
             ),
             TextButton(onPressed: submitData, child: Text('TextButton')),
             AspectRatio(
-                aspectRatio: 1.1,
+                aspectRatio: 1.0,
                 child: RadarChart(
                   RadarChartData(
                     radarTouchData: RadarTouchData(
@@ -206,7 +205,7 @@ class AlgorithmScreenState extends State<AlgorithmScreen> {
                           return '';
                       }
                     },
-                    tickCount: 1,
+                    tickCount: 7,
                     ticksTextStyle: const TextStyle(
                         color: Colors.transparent, fontSize: 10),
                     tickBorderData: const BorderSide(color: Colors.transparent),

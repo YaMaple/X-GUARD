@@ -26,7 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
     showDialog(
         context: context,
         builder: (ctx) => AlertDialog(
-              title: Text('An Error Occurred!'),
+              title: Text('Invalid Username or Password!'),
               actions: <Widget>[
                 TextButton(
                     onPressed: () {

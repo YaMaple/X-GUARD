@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:pdf/pdf.dart';
 import 'generate_report.dart';
@@ -17,23 +19,27 @@ const offRoadColor = Color(0xFFFFF59D);
 List<RawDataSet> company_backup = [
   RawDataSet(
     title: 'Meta',
+    network_id: '27105',
     imageUrl: 'assets/images/Meta.png',
     color: fashionColor,
     values: [300, 50, 250, 130, 100, 210],
   ),
   RawDataSet(
     title: 'LinkedIn',
+    network_id: '27107',
     imageUrl: 'assets/images/LinkedIn.png',
     color: artColor,
     values: [250, 100, 200, 80, 270, 230],
   ),
   RawDataSet(
       title: 'Microsoft',
+      network_id: '27200',
       color: boxingColor,
       values: [130, 120, 40, 230, 80, 190],
       imageUrl: 'assets/images/Microsoft.png'),
   RawDataSet(
       title: 'Amazon',
+      network_id: '27202',
       color: gridColor,
       values: [110, 120, 80, 90, 220, 210],
       imageUrl: 'assets/images/Amazon.png')
@@ -44,12 +50,14 @@ class RawDataSet {
   final Color color;
   final List<double> values;
   final String imageUrl;
+  final String network_id;
 
   RawDataSet(
       {required this.title,
       required this.color,
       required this.values,
-      required this.imageUrl});
+      required this.imageUrl,
+      required this.network_id});
 }
 
 class AlgorithmScreen extends StatefulWidget {
@@ -63,7 +71,12 @@ class AlgorithmScreen extends StatefulWidget {
 class AlgorithmScreenState extends State<AlgorithmScreen> {
   int selectedDataSetIndex = -1;
 
-  void submitData() async {}
+  String roa = "",
+      liab_ratio = "",
+      subsidiary = "",
+      sales_profit = "",
+      liquidity = "",
+      secure_liab = "";
 
   List<RadarDataSet> showingDataSets() {
     int index = ModalRoute.of(context)!.settings.arguments as int;
@@ -93,6 +106,19 @@ class AlgorithmScreenState extends State<AlgorithmScreen> {
         borderWidth: isSelected ? 2.3 : 2,
       );
     }).toList();
+  }
+
+  void get_company_info(int index) async {
+    final para = {'id': company_backup[index].network_id};
+    final uri = Uri.http('ftec5510.herokuapp.com', '/company', para);
+    final response = await http.get(uri);
+    final extractedData = json.decode(response.body) as Map<String, dynamic>;
+    roa = extractedData['roa'];
+    liab_ratio = extractedData['liab_ratio'];
+    subsidiary = extractedData['subsidiary'];
+    sales_profit = extractedData['sales_profit'];
+    liquidity = extractedData['liquidity'];
+    secure_liab = extractedData['secure_liab'];
   }
 
   @override

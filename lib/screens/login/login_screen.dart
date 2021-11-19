@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:math';
 
 import 'package:flutter_complete_guide/screens/tabs_screen.dart';
@@ -5,6 +6,7 @@ import 'package:flutter_complete_guide/screens/tabs_screen.dart';
 import 'customClipper.dart';
 import 'signup_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 class LoginScreen extends StatefulWidget {
   static const routeName = '/login';
@@ -15,6 +17,26 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final userController = TextEditingController();
+  final passwordController = TextEditingController();
+
+  void on_error() {
+    userController.clear();
+    passwordController.clear();
+    showDialog(
+        context: context,
+        builder: (ctx) => AlertDialog(
+              title: Text('An Error Occurred!'),
+              actions: <Widget>[
+                TextButton(
+                    onPressed: () {
+                      Navigator.of(ctx).pop();
+                    },
+                    child: Text('Okay'))
+              ],
+            ));
+  }
+
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -90,6 +112,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                             TextField(
                                 obscureText: false,
+                                controller: userController,
                                 decoration: InputDecoration(
                                     border: InputBorder.none,
                                     fillColor: Color(0xfff3f3f4),
@@ -112,6 +135,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                             TextField(
                                 obscureText: true,
+                                controller: passwordController,
                                 decoration: InputDecoration(
                                     border: InputBorder.none,
                                     fillColor: Color(0xfff3f3f4),
@@ -123,12 +147,29 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   SizedBox(height: 20),
                   GestureDetector(
-                    onTap: () => Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => TabsScreen(),
-                      ),
-                    ),
+                    onTap: () async {
+                      final para = {
+                        'name': userController.text,
+                      };
+                      final uri =
+                          Uri.http('ftec5510.herokuapp.com', '/user', para);
+                      final response = await http.get(uri);
+                      if (response.statusCode == 404) {
+                        on_error();
+                      }
+                      final extractedData =
+                          json.decode(response.body) as Map<String, dynamic>;
+                      if (extractedData["password"] ==
+                          passwordController.text) {
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => TabsScreen(),
+                            ));
+                      } else {
+                        on_error();
+                      }
+                    },
                     child: Container(
                       width: MediaQuery.of(context).size.width,
                       padding: EdgeInsets.symmetric(vertical: 15),

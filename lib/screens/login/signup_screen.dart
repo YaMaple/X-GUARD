@@ -4,6 +4,7 @@ import 'customClipper.dart';
 import '../tabs_screen.dart';
 import 'login_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 class SignUpScreen extends StatefulWidget {
   static const routeName = '/sign-up';
@@ -14,6 +15,10 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
+  final userController = TextEditingController();
+  final passwordController = TextEditingController();
+  final emailController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -92,6 +97,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               ),
                               TextField(
                                   obscureText: false,
+                                  controller: userController,
                                   decoration: InputDecoration(
                                       border: InputBorder.none,
                                       fillColor: Color(0xfff3f3f4),
@@ -115,6 +121,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               TextField(
                                   keyboardType: TextInputType.emailAddress,
                                   obscureText: false,
+                                  controller: emailController,
                                   decoration: InputDecoration(
                                       border: InputBorder.none,
                                       fillColor: Color(0xfff3f3f4),
@@ -137,6 +144,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               ),
                               TextField(
                                   obscureText: true,
+                                  controller: passwordController,
                                   decoration: InputDecoration(
                                       border: InputBorder.none,
                                       fillColor: Color(0xfff3f3f4),
@@ -150,12 +158,22 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       height: 20,
                     ),
                     GestureDetector(
-                      onTap: () => Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => TabsScreen(),
-                        ),
-                      ),
+                      onTap: () async {
+                        var url =
+                            Uri.parse('http://ftec5510.herokuapp.com/user');
+                        var response = await http.post(url, body: {
+                          'name': userController.text,
+                          'email': emailController.text,
+                          'password': passwordController.text,
+                          'bank': 'EMO Bank',
+                          'field': 'tech'
+                        });
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => TabsScreen(),
+                            ));
+                      },
                       child: Container(
                         width: MediaQuery.of(context).size.width,
                         padding: EdgeInsets.symmetric(vertical: 15),

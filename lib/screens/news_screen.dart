@@ -42,7 +42,7 @@ class _NewsScreenState extends State<NewsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Focus'),
+        title: Text('News'),
         backgroundColor: Color.fromARGB(0xff, 0x14, 0x27, 0x4e),
       ),
       body: ListView.builder(

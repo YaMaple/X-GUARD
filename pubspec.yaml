@@ -75,6 +75,9 @@ flutter:
     - assets/images/Settings.svg
     - assets/images/Question mark.svg
     - assets/images/Log out.svg
+    - assets/images/swiss.jpg
+    - assets/images/berlin.jpg
+    - assets/images/tyre.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

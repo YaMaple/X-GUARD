@@ -3,26 +3,23 @@ import 'models/news.dart';
 const DUMMY_NEWS = const [
   News(
       index: 0,
-      title: 'How to think about the unstoppable rise of index funds',
+      title: 'Rubber tires start the price hike',
       content:
-          '''The history of modern finance is littered with ideas that worked well enough at small scale—railway bonds, Japanese skyscrapers, sliced-and-diced mortgage securities—but morphed into monstrosities once too many punters piled in. When it comes to sheer size, no mania can compare with that for passive investing. Funds that track the entire market by buying shares in every company in America’s s&p 500, say, rather than guessing which will perform better than average, have attained giant scale. Fully 40% of the total net assets managed by funds in America are in passive vehicles, reckons the Investment Company Institute, an industry group. The phenomenon warrants scrutiny.
-Index funds have grown because of the validity of the core insight underpinning them: conventional investment funds are, by and large, a terrible proposition. The vast majority fail to beat the market over the years. Hefty management fees paid by investors in such ventures, often around 1-2% a year (and more for snazzy hedge funds), add up to giant bonuses for stockpickers. Index funds, by contrast, charge nearly nothing (0.04% for a large equity fund) and do a good job of hugging their chosen benchmark. Given time, they almost inevitably leave active managers in the dust.''',
-      imageUrl: 'assets/images/index.jpg'),
+          '''According to industry sources, recently, many tire companies have placed price increase notices until 2021. Shandong Jinyu Rubber has decided to adjust product prices starting in 2021, this time the increase is 2% to 3%. Chaoyang Huaxing Wanda Tire issued a price adjustment notification letter, increasing the company's inner tube price by 3 points and the pad belt by 5 points from the original price. Shandong Haoyu Rubber issued a price increase notice and adjusted the prices of the entire series of TBR products produced by 2%. In addition to major domestic tire manufacturers, foreign tire companies such as Hankook, Giti, Goodyear, Bridgestone and other foreign tire companies have also begun to increase their prices, each with a cumulative price increase of more than 5%''',
+      imageUrl: 'assets/images/tyre.png'),
   News(
     index: 1,
-    title: 'How environmental damage can lead to new diseases',
+    title: 'Swiss aviation industry launches layoff plan',
     content:
-        '''THE WORLD’S monitored populations of wild animals have decreased by an average of 68% in the past 50 years, according to the Worldwide Fund for Nature. Deforestation, intensive farming and the changing use of land are largely to blame. But nature can recover, provided it is given a chance. COP15, a UN biodiversity summit that took place last week, sought to do just that. More than 100 countries recognised the need to reverse species decline by 2030 and acknowledged the consequences of harmful environmental practices and climate change for biodiversity. These efforts are long overdue—and not just for the sake of wildlife. The same actions that threaten ecosystems endanger human health too.
-Growing evidence points to a connection between destructive environmental practices and emerging diseases. Exactly how one leads to the other is not yet fully understood, as the struggle to establish the origin of covid-19 shows (the virus may have leaked from a lab, or “spilled over” from bats into humans, via an intermediary species). Why are changes in ecosystems linked to the spread of disease, and what increases the risk of outbreaks?''',
-    imageUrl: 'assets/images/environment.jpg',
+        '''On the 29th local time, Swissair’s chairman of the board of directors Reto Francini said that it is hoped that the aviation business volume in the summer of 2021 will reach 50% of the pre-epidemic volume. Whether intercontinental routes can be restored is critical to achieving this goal. If contrary to expectations, there is still no significant improvement next summer, layoffs will be unavoidable. Previously, Swissair had announced that it would lay off 1,000 employees within two years by freezing recruitment, adopting part-time work plans and early retirement of employees. Reto Francini also pointed out that there is little hope for the aviation industry to recover quickly, and it is expected that it will not be able to operate normally until 2024.''',
+    imageUrl: 'assets/images/swiss.jpg',
   ),
   News(
     index: 2,
-    title: 'The meaning of South Africa’s most popular magazine',
-    imageUrl: 'assets/images/south.jpg',
+    title: 'Berlin' 's largest vaccination center temporarily closed',
+    imageUrl: 'assets/images/berlin.jpg',
     content:
-        '''Aglance at its website belies the historical significance of Huisgenoot, the magazine with the highest circulation in South Africa. Among the most-read stories in early October were “Skokoomblik toe bruidegom se rug tydens onthaal breek” and “Vrou se oog per ongeluk met supergom toegeplak”. For those unfamiliar with Afrikaans, the language spoken at home by 12% of South Africans, these tales concern the “Shocking moment when groom’s back breaks during wedding reception” and the sticky situation in which a “Woman’s eye is accidentally glued shut with super glue”.
-It is a far cry from the early days of the magazine. After the Anglo-Boer war (1899-1902) there was what Herman Giliomee, a historian, calls “the building of an Afrikaner ethnic consciousness” among the disparate group of South Africans of mostly Dutch descent. Important to that effort was Huisgenoot (Home companion), launched in 1916. It presented Afrikaner history as a heroic epic, extolled Afrikaner literature and helped standardise Afrikaans as its articles were used in school comprehension tests.''',
+        '''The Berlin health department announced on the 29th local time that it will temporarily close Berlin Treptow from December 31 to January 3 because it prioritizes vaccinating high-risk groups through mobile work groups to elderly care institutions and hospitals. Vaccination center in gymnasium''',
   ),
   News(
     index: 3,

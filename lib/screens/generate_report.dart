@@ -10,12 +10,12 @@ FutureOr<Uint8List> buildPdf(PdfPageFormat format) async {
   const tableHeaders = ['Category', 'Budget', 'Expense', 'Result'];
 
   const dataTable = [
-    ['ROA', 80, 30],
-    ['Asset Turnover', 70, 40],
-    ['Leverage Ratio', 60, 12],
-    ['Liquidity Ratio', 30, 60],
-    ['Current Ratio', 45, 70],
-    ['Quick Ratio', 88, 28],
+    ['ROA', 30, 30],
+    ['Asset Turnover', 20, 40],
+    ['Leverage Ratio', 80, 12],
+    ['Liquidity Ratio', 20, 60],
+    ['Current Ratio', 19, 70],
+    ['Quick Ratio', 34, 28],
   ];
 
   final baseColor = PdfColors.cyan;
@@ -150,8 +150,8 @@ FutureOr<Uint8List> buildPdf(PdfPageFormat format) async {
                     // Expense by sub-categories
                     // 左列正文
                     pw.Text(
-                      '''[Sample Name]dosen''t have default history. Since the settlement of this loan,[Sample Name] has been paying loan in time periodically.
-[Sample Name]has once default in [DD/MM/YY],the default amount was [? thousand HKD]. Since the settlement of this loan,[Sample Name] has been paying back loan in time periodically./[Sample Name] has the record of non-payment overdue.''',
+                      '''He’nan Tianyan construction group limited dosen't have default history. After applying for the loan,He’nan Tianyan construction group limited has been operated in bad condition. Its profit is low and main business is facing diffuculties compared with other construction companies. 
+,He’nan Tianyan construction group limited has not been paying back loan in time in other banks.ABC banks has the record of non-payment overdue for He’nan Tianyan construction group limited.''',
                       textAlign: pw.TextAlign.justify,
                     ),
                     pw.ConstrainedBox(
@@ -167,15 +167,15 @@ FutureOr<Uint8List> buildPdf(PdfPageFormat format) async {
                   child: pw.Column(
                       crossAxisAlignment: pw.CrossAxisAlignment.start,
                       children: [
-                        pw.Text("Basic info:"),
-                        pw.Text("Company:"),
-                        pw.Text("LoanType:"),
-                        pw.Text("Settlement:"),
-                        pw.Text("maturity:"),
-                        pw.Text("Bank:"),
-                        pw.Text("Manager:"),
-                        pw.Text("Amount:"),
-                        pw.Text("Interest rate:"),
+                        pw.Text("Basic info: Construction"),
+                        pw.Text("Company: He’nan Tianyan"),
+                        pw.Text("LoanType: Long-term morgage"),
+                        pw.Text("Settlement: IP"),
+                        pw.Text("maturity: 1 year"),
+                        pw.Text("Bank: XXX bank"),
+                        pw.Text("Manager: Jiawei"),
+                        pw.Text("Amount: 100k"),
+                        pw.Text("Interest rate: 1%"),
                         pw.Table.fromTextArray(
                             defaultColumnWidth: pw.FlexColumnWidth(1),
                             cellHeight: 10,
@@ -187,7 +187,7 @@ FutureOr<Uint8List> buildPdf(PdfPageFormat format) async {
                                 'Risk Indicator',
                                 'Performance',
                               ],
-                              <String>['Industry', 'XXXX'],
+                              <String>['Industry', 'Construction'],
                             ]),
                         pw.Row(children: [
                           pw.Expanded(
@@ -210,10 +210,10 @@ FutureOr<Uint8List> buildPdf(PdfPageFormat format) async {
                                   cellAlignment: pw.Alignment.center,
                                   cellStyle: pw.TextStyle(fontSize: 5),
                                   data: const <List<String>>[
-                                <String>['Health', '9'],
-                                <String>['Profit', '6'],
+                                <String>['Health', '3'],
+                                <String>['Profit', '4'],
                                 <String>['Safety', '5'],
-                                <String>['performance', '7'],
+                                <String>['performance', '4'],
                               ])),
                         ]),
                         pw.Table.fromTextArray(
@@ -228,7 +228,7 @@ FutureOr<Uint8List> buildPdf(PdfPageFormat format) async {
                                 'one contract',
                               ],
                               <String>['company', 'no relation change'],
-                              <String>['credit', '9']
+                              <String>['credit', '3']
                             ]),
                       ]))
             ]),

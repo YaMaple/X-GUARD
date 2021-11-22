@@ -128,7 +128,7 @@ class WatchListScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Watch List'),
+        title: Text('Watchlist'),
         backgroundColor: Color.fromARGB(0xff, 0x14, 0x27, 0x4e),
       ),
       body: ListView.builder(

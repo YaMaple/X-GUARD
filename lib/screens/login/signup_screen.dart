@@ -202,7 +202,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ),
                       ),
                     ),
-                    SizedBox(height: height * .14),
+                    SizedBox(height: 10),
                     InkWell(
                       onTap: () {
                         Navigator.push(
@@ -211,7 +211,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 builder: (context) => LoginScreen()));
                       },
                       child: Container(
-                        margin: EdgeInsets.symmetric(vertical: 20),
                         padding: EdgeInsets.all(15),
                         alignment: Alignment.bottomCenter,
                         child: Row(

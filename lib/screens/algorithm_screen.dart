@@ -186,7 +186,7 @@ class AlgorithmScreenState extends State<AlgorithmScreen> {
                     borderData: FlBorderData(show: false),
                     radarBorderData: const BorderSide(
                         color: Color.fromARGB(0xff, 0x14, 0x27, 0x4e)),
-                    titlePositionPercentageOffset: 0.2,
+                    titlePositionPercentageOffset: 0.1,
                     titleTextStyle:
                         const TextStyle(color: titleColor, fontSize: 14),
                     getTitle: (index) {
@@ -194,7 +194,7 @@ class AlgorithmScreenState extends State<AlgorithmScreen> {
                         case 0:
                           return 'Peer performance';
                         case 1:
-                          return 'Cash flow';
+                          return 'Cash flow parent company';
                         case 2:
                           return 'Credit record';
                         case 3:
@@ -202,7 +202,7 @@ class AlgorithmScreenState extends State<AlgorithmScreen> {
                         case 4:
                           return 'Lawsuits';
                         case 5:
-                          return 'Cash flow';
+                          return 'Cash flow up/down stream';
                         default:
                           return '';
                       }

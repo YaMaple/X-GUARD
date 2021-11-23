@@ -160,9 +160,12 @@ class AlgorithmScreenState extends State<AlgorithmScreen> {
               ),
             ),
             //TextButton(onPressed: submitData, child: Text('TextButton')),
+            SizedBox(
+              height: 50,
+            ),
             Text(
               'Risk Radar',
-              style: TextStyle(fontSize: 20),
+              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ),
             AspectRatio(
                 aspectRatio: 1.0,

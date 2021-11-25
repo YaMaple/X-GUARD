@@ -150,8 +150,8 @@ FutureOr<Uint8List> buildPdf(PdfPageFormat format) async {
                     // Expense by sub-categories
                     // 左列正文
                     pw.Text(
-                      '''He’nan Tianyan construction group limited dosen't have default history. After applying for the loan,He’nan Tianyan construction group limited has been operated in bad condition. Its profit is low and main business is facing diffuculties compared with other construction companies. 
-,He’nan Tianyan construction group limited has not been paying back loan in time in other banks.ABC banks has the record of non-payment overdue for He’nan Tianyan construction group limited.''',
+                      '''He'nan Tianyan construction group limited dosen't have default history. After applying for the loan,He'nan Tianyan construction group limited has been operated in bad condition. Its profit is low and main business is facing diffuculties compared with other construction companies. 
+,He'nan Tianyan construction group limited has not been paying back loan in time in other banks.ABC banks has the record of non-payment overdue for He'nan Tianyan construction group limited.''',
                       textAlign: pw.TextAlign.justify,
                     ),
                     pw.ConstrainedBox(
@@ -168,7 +168,7 @@ FutureOr<Uint8List> buildPdf(PdfPageFormat format) async {
                       crossAxisAlignment: pw.CrossAxisAlignment.start,
                       children: [
                         pw.Text("Basic info: Construction"),
-                        pw.Text("Company: He’nan Tianyan"),
+                        pw.Text("Company: He'nan Tianyan"),
                         pw.Text("LoanType: Long-term morgage"),
                         pw.Text("Settlement: IP"),
                         pw.Text("maturity: 1 year"),

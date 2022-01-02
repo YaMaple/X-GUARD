@@ -1,5 +1,4 @@
 # FTEC5510 GROUP-7 X-GUARD
-
 ### 登录界面 Login In
 ![image](github_readme_images/login_in.jpg)
 ---
@@ -20,3 +19,5 @@
 ---
 ### 风险报表 Risk PDF Report
 ![image](github_readme_images/risk_pdf_report.jpg)
+---
+祝愿家和万事兴

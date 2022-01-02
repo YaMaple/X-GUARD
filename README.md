@@ -4,13 +4,13 @@
 
 ### 登录界面 Login In
 ![image](github_readme_images/login_in.jpg)
-
+--------------------------------------------
 ### 新闻界面 News
 ![image](github_readme_images/news.jpg)
-
+--------------------------------------------
 ### 风险列表界面 Risk Watchlist
 ![image](github_readme_images/risk_watchlist.jpg)
-
+--------------------------------------------
 ### 用户界面 User Profile
 ![image](github_readme_images/profile.jpg)
 
